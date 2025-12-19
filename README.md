@@ -95,6 +95,7 @@ Make sure you replace **`homeworkout-aws`** with **your own bucket name** in the
 
 ⚠️ **Important:** You must change `homeworkout-aws` to match your actual bucket name, otherwise the policy will not work.
 d) Once done, click **Save changes** to apply the bucket policy.
+
 ![Enable Static Website Hosting](https://i.postimg.cc/43ytyHwV/Screenshot-2025-11-10-142911.png)
 
 
@@ -103,10 +104,50 @@ e) You should now be able to view your website using the Amazon S3 website endpo
  Click on the **Properties** tab.
  Scroll to the bottom to find the **Static website hosting** section.
  Locate the **Bucket website endpoint** URL and click on it to open your website in a browser.
+
 ![Enable Static Website Hosting](https://i.postimg.cc/wjZx5tgs/Screenshot-2025-11-10-140210.png)
 
 
 
 
+**Step 5 – Create a CloudFront Distribution**
+a) From the top navigation bar, go to **Services > All Services**, search for **CloudFront**, and click on it to open the CloudFront console.
+b) On the **CloudFront Distributions** page, click **Create distribution** to begin setting up a new distribution.
 
+![Enable Static Website Hosting](https://i.postimg.cc/y6yFfKJn/Screenshot-2025-12-17-154809.png)
+
+c) Name your Distribution.
+
+![Enable Static Website Hosting](https://i.postimg.cc/1zK9kvpP/Screenshot-2025-12-17-155051.png)
+
+Specify Origin (S3)
+![Enable Static Website Hosting](https://i.postimg.cc/T1JFws3Y/Screenshot-2025-12-17-155405.png)
+
+On the Create distribution page > under Origin section > for Origin domain > enter the Amazon S3 static website endpoint earlier.
+Example: homeworkout-aws.s3-website.ap-south-1.amazonaws.com (You can also choose from the drop-down list if available) when prompted click on Use website endpoint to automatically fill the endpoint.
+![Enable Static Website Hosting](https://i.postimg.cc/hG4jtF4g/Screenshot-2025-12-17-155242.png)
+![Enable Static Website Hosting](https://i.postimg.cc/vZJzJzGW/Screenshot-2025-12-17-155419.png)
+
+
+g) Other settings remain the same.
+![Enable Static Website Hosting](https://i.postimg.cc/L4WZQs9B/Screenshot-2025-12-17-155508.png)
+![Enable Static Website Hosting](https://i.postimg.cc/fLrkPHhP/Screenshot-2025-12-17-155527.png)
+
+ Move to the final step and click create distribution
+
+![Enable Static Website Hosting](https://i.postimg.cc/RVfQct7w/Screenshot-2025-12-17-155633.png)
+
+
+
+
+CloudFront will begin caching and delivering your site’s files from global edge locations, which may take a short while to finish. 
+Once the distribution status changes to **Enabled**, it is live. 
+You can then access your website using the CloudFront domain name listed in the **Domain name** column (for example, `d1iw3f2bekq5bl.cloudfront.net`) by opening it in your browser.
+![Cloudfront](https://i.postimg.cc/pLLr2bX3/Screenshot-2025-12-17-192854.png)
+
+
+
+You’ve successfully deployed a **high-performance, highly available static website on AWS** using **Amazon S3 and Amazon CloudFront**.
+All without provisioning or managing a single server.
+![Cloudfront](https://i.postimg.cc/SsFmYwkb/Screenshot-2025-12-17-160002.png)
 
